@@ -91,19 +91,12 @@ int arr3[] = {1, 2, 3, 4, 5};	>>> int arr3[5] = {1, 2, 3, 4, 5};
 //}
 
 
-//int main(void)
-//{
-//	char nu = '\0'; // 널 문자의 존재 여부는 문자열의 판단 여부가 됨! 매우 중요! 
-//	char sp = ' ';
-//	
-//	printf("%d %d \n", nu, sp);
-//	
-//	return 0;
-//}
-
-
- #include <stdio.h>
- int main(void)
- {
- 	char 
- }
+int main(void)
+{
+	char nu = '\0'; // 널 문자의 존재 여부는 문자열의 판단 여부가 됨! 매우 중요! 
+	char sp = ' ';
+	
+	printf("%d %d \n", nu, sp);
+	
+	return 0;
+}
