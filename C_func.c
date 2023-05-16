@@ -147,4 +147,5 @@ int val_compare(int num1, int num2, int num3)
         small_num = num3;
 
     return large_num, small_num;
+    
 }
