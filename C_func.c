@@ -149,3 +149,27 @@ int val_compare(int num1, int num2, int num3)
     return large_num, small_num;
     
 }
+
+
+// 피보나치  수열
+void fibo(int num)
+{
+    int f1 = 0, f2 = 0, f3;
+    int i;
+
+    print("%d %d ", f1, f2);
+
+    
+}
+
+int main(void)
+{
+    int n;
+
+    printf("출력하고자 하는 피보나치 수열 갯수: \n");
+    scanf("%d", &n);
+
+    fibo(n);
+
+    return 0;
+}
