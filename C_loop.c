@@ -294,26 +294,108 @@ void times_table_reverse_dowhile(void)
 
 void sum_odd_num(void)
 {
-    int sum = 0, num = 1;
+    int num, sum = 0, i = 1;
 
     do
     {
+        num = i * 2 -1;
         sum += num;
-        num += 1;
-    } while (num <= 100);
+        i += 1;
+    } while (i*2 -1 <= 100);
 
-    int i = 1;
-    do
+    printf("%d", sum);
+}
+
+
+// int main(void)
+// {
+//     // do_while_basic();
+//     // times_table_reverse_dowhile();
+//     sum_odd_num();
+// }
+
+
+/*
+========================================================================
+for loop
+
+for (초기식; 조건식; 증감식)
+{
+    statements;
+}
+========================================================================
+*/
+
+void times_table_for_loop(void)
+{
+    int num = 3, i;
+    printf("3단 구구단 출력: \n");
+
+    for (i = 1; i <= 9; i++)
+        printf("%2d x %2d = %2d\n", num, i, num * i);
+}
+
+
+void input_sum(void)
+{
+    int i, num, sum;
+    printf("정수 입력: ");
+    scanf("%d", &num);
+
+    for (i = 1, sum = 0; i <= num; i++)
+        sum += i;
+
+    printf("정수의 합: %d\n", sum);
+}
+
+
+void between_sum(void)
+{
+    int i, num1, num2, sum;
+    printf("두 정수 입력: ");
+    scanf("%d %d", &num1, &num2);
+
+    for (i = num1, sum = 0; i <= num2; i++)
+        sum += i;
+
+    printf("정수의 합: %d\n", sum);
+}
+
+
+void times_table_whole_for_loop(void)
+{
+    int num, i;
+
+    for (num = 2; num <= 9; num++)
     {
-        sum -= i * 2;
-    } while (i * 2 <= 100);
+        for (i = 1; i <= 9; i++)
+        {
+            printf("%2d x %2d = %2d\n", num, i, num * i);
+        }
+    }
+}
 
-    printf("")
+
+void factorial_for_loop(void)
+{
+    int i, num, factorial = 1;
+    printf("정수 입력: ");
+    scanf("%d", &num);
+
+    for (i = 1; i <= num; i++)
+    {
+        factorial *= i;
+    }
+
+    printf("%d! = %d\n", num, factorial);
 }
 
 
 int main(void)
 {
-    // do_while_basic();
-    times_table_reverse_dowhile();
+    // times_table_for_loop();
+    // input_sum();
+    // between_sum();
+    // times_table_whole_for_loop();
+    factorial_for_loop();
 }
