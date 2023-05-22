@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 /*
 ========================================================================
@@ -141,6 +142,203 @@ void get_average(void)
 }
 
 
+// 삼항 연산자 - (condition) ? (result1) : (result2) * condition == True > result1 else result2
+void ternary(void)
+{
+    int num, abs;
+
+    printf("정수 입력: ");
+    scanf("%d", &num);
+
+    abs = (num >= 0) ? (num) : (num * -1);
+
+    printf("%d의 절대값: %d\n", num, abs);
+}
+
+
+// break문
+void break_basic(void)
+{
+    int num = 1, sum = 0;
+
+    while (1)
+    {
+        sum += num;
+
+        if (sum > 5000)
+            break;
+        
+        num ++;
+    }
+
+    printf("num: %d, sum: %d\n", num, sum);
+}
+
+
+// continue문 - 1 ~ 30의 정수 중, 2와 3의 배수가 아닌 수만 출력
+void continue_basic(void)
+{
+    int num;
+
+    for (num = 1; num <= 30; num ++)
+    {
+        if (num % 2 == 0 || num % 3 == 0)
+            continue;
+
+        printf("%d ", num);
+    }
+    printf("\n");
+}
+
+
+// ex
+void cal_diff(void)
+{
+    int num1, num2, diff;
+
+    printf("두 개의 정수 입력: ");
+    scanf("%d %d", &num1, &num2);
+
+    diff = (num1 >= num2) ? (num1-num2) : (num2-num1);
+
+    printf("연산 결과: %d\n", diff);
+}
+
+void find_odd(void)
+{
+    int num;
+
+    for (num = 1; num <= 100; num ++)
+    {
+        if (num % 2 == 1)
+            printf("%d ", num);
+        else
+            continue;
+    }
+    printf("\n");
+}
+
+void even_times_table(void)
+{
+    int num, i;
+
+    for (num = 2; num <= 9; num ++)
+    {
+        if (num % 2 != 0)
+            continue;
+
+        for (i = 1; i <= num; i ++)
+            printf("%2d x %2d = %2d\n", num, i, num * i);
+        
+        printf("\n");
+    }
+}
+
+void f1(void)
+{
+    int a, z, AZ, ZA;
+
+    for (a = 0; a <= 9; a++)
+    {
+        for (z = 0; z <= 9; z++)
+        {
+            AZ = a * 10 + z;
+            ZA = z * 10 + a;
+
+            if (AZ + ZA == 99)
+            {
+                printf("%d%d + %d%d = %d\n", a, z, z, a, AZ+ZA);
+            }
+            else
+                continue;
+        }
+    }
+}
+
+
+/*
+========================================================================
+switch statements - case문?
+
+switch (expression)
+{
+    case statements
+
+    case statements
+
+    default: statements
+}
+========================================================================
+*/
+void switch_basic(void)
+{
+    int num;
+
+    printf("1부터 3까지의 정수 중 하나 입력: ");
+    scanf("%d", &num);
+
+    switch (num)
+    {
+        case 1:
+            printf("1은 one\n");
+            break;
+
+        case 2:
+            printf("2는 two\n");
+            break;
+
+        case 3:
+            printf("3은 three\n");
+            break;
+
+        default:
+            printf("I done't know! \n");
+    }
+}
+
+
+// 연습문제!
+void solution1(void)
+{
+    int a, b, c, sum, target, cnt = 0;
+    // 크림방 500원, 새우깡 700원, 콜라 400원
+
+    printf("주머니에 있는 금액 입력: ");
+    scanf("%d", &target);
+
+    for (a = 1; a * 500 < target; a++)
+    {
+        for (b = 1; b * 700 < target; b++)
+        {
+            for (c = 1; c * 400 < target; c++)
+            {
+                if (a * 500 + b * 700 + c * 400 == target)
+                {
+                    cnt += 1;
+                    printf("크림빵 %d, 새우깡 %d, 콜라 %d\n", a, b, c);
+                }
+            }
+                
+        }
+    }
+
+    if (cnt == 0)
+    {
+        printf("불가능\n");
+    }
+}
+
+
+void solution2(void)
+{
+    int num;
+
+    printf("정수 입력: ");
+    scanf("%d", &num);
+
+    
+    printf("%lf", pow((double)num, 0.5));
+}
 
 
 int main(void)
@@ -149,5 +347,15 @@ int main(void)
     // calculator();
     // multiples_of_num();
     // compare_num();
-    get_average();
+    // get_average();
+    // ternary();
+    // break_basic();
+    // continue_basic();
+    // cal_diff();
+    // find_odd();
+    // even_times_table();
+    // f1();
+    // switch_basic();
+    // solution1();
+    solution2();
 }
