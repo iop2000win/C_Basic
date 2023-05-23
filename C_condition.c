@@ -329,6 +329,7 @@ void solution1(void)
 }
 
 
+// 소수를 찾는 문제
 void solution2(void)
 {
     int num;
@@ -339,6 +340,67 @@ void solution2(void)
     
     printf("%lf", pow((double)num, 0.5));
 }
+
+
+// 시간 - 초 변환 문제
+void solution3(void)
+{
+    int t, m, s;
+
+    printf("초 입력: ");
+    scanf("%d", &s);
+
+    t = s / 3600;
+    s = s % 3600;
+
+    m = s / 60;
+    s = s % 60;
+
+    if (t > 0)
+    {
+        printf("%d시간", t);
+    }
+    if (m > 0)
+    {
+        printf(" %d분", m);
+    }
+    if (s > 0)
+    {
+        printf(" %d초", s);
+    }
+    printf("\n");
+}
+
+
+// 지수 계산
+void solution4(void)
+{
+    int n, k, val;
+
+    printf("정수 입력: ");
+    scanf("%d", &n);
+
+    for (k = 0, val = 1; val * 2 <= n; k += 1)
+    {
+        if (k == 0)
+        {
+            val = 1;
+        }
+        else
+        {
+            val = val * 2;
+        }
+        // printf("2의 %d 제곱: %d\n", k, val);
+    }
+
+    printf("k의 최댓값: %d\n", k-1);
+
+    if (val < n)
+    {
+        printf("입력 값과 일치하는 결과 값 도출 불가능\n");
+    }
+}
+
 
 
 int main(void)
@@ -357,5 +419,7 @@ int main(void)
     // f1();
     // switch_basic();
     // solution1();
-    solution2();
+    // solution2();
+    // solution3();
+    solution4();
 }
