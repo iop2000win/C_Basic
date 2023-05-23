@@ -191,6 +191,45 @@ int f4(void)
 }
 
 
+/*
+지역 변수 & 전역 변수
+
+- for 문의 중괄호 안에서 선언된 변수도 지역 변수이다. 
+*/
+int simple_func_1(void);
+int simple_func_2(void);
+
+int f5(void)
+{
+	int num = 10;
+	simple_func_1();
+	simple_func_2();
+	
+	printf("main num: %d\n", num);
+	
+	return 0;
+}
+
+int simple_func_1(void)
+{
+	int num = 20;
+	num++;
+	
+	printf("simple_func_1 num: %d\n", num);
+	
+	return 0;
+}
+
+int simple_func_2(void)
+{
+	int num1 = 30, num2 = 40;
+	num1++, num2--;
+	
+	printf("num1 & num2: %d %d\n", num1, num2);
+	
+	return 0;
+}
+
 // main 함수는 최종적으로 이 코드 파일을 실행했을 때 작동하는 함수
 // 다른 함수의 경우는 선언해도 작동하지 않지만, main 함수는 코드 실행 시에 작동 (약간 __init__ 이랑 비슷한 느낌?)
 int main(void)
@@ -199,5 +238,6 @@ int main(void)
     // f1();
     // f2();
     // f3();
-    f4();
+    // f4();
+    f5();
 }
