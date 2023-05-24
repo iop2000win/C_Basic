@@ -192,7 +192,7 @@ int f4(void)
 
 
 /*
-지역 변수 & 전역 변수
+5. 지역 변수 & 전역 변수
 
 - for 문의 중괄호 안에서 선언된 변수도 지역 변수이다. 
 */
@@ -201,6 +201,7 @@ int simple_func_2(void);
 
 int f5(void)
 {
+    // f5 내에서 선언된 num 변수와, simple_func_1 함수 내에서 선언된 num 변수
 	int num = 10;
 	simple_func_1();
 	simple_func_2();
@@ -230,6 +231,130 @@ int simple_func_2(void)
 	return 0;
 }
 
+
+int f6(void)
+{
+    int num = 1;
+
+    if (num == 1)
+    {
+        int num = 7;
+        num += 10;
+
+        printf("if 문 내 지역 변수 num: %d\n", num);
+    }
+
+    printf("f6 함수 내 지역 변수 num: %d\n", num);
+}
+
+
+void add_f7(int);
+int num; // 함수 외부에서 선언하는 전역 변수, 특정 값으로 초기화하지 않을 경우 0으로 초기화
+
+int f7(void)
+{
+    printf("num: %d\n", num); // num == 0
+    
+    add_f7(7);
+    printf("num: %d\n", num); // num == 7
+    
+    num++;
+    printf("num: %d\n", num); // num == 8
+
+    return 0;
+}
+
+void add_f7(int val)
+{
+    num += val;
+}
+
+
+/*
+6. static 변수
+
+프로그램이 작동하는 동안, 최초에만 초기화되고 그 후에는 다시 선언해도 초기화가 되지 않는다.
+*/
+void static_simple(void);
+
+int f8(void)
+{
+    int i;
+
+    for (i = 0; i < 3; i++)
+        static_simple();
+
+    return 0;
+}
+
+void static_simple(void)
+{
+    static int num1 = 0; // 이 때 0으로 선언 된 후에는, 반복문이 돌아도 0으로 초기화 되지 않는다.
+    int num2 = 0;
+
+    num1++, num2++;
+
+    printf("static: %d, local: %d\n", num1, num2);
+}
+
+
+/*
+7. recursive functions
+*/
+void recursive(int);
+int factorial(int);
+
+int f9(void)
+{
+    recursive(3);
+
+    printf("5! = %d\n", factorial(5));
+
+    return 0;
+}
+
+void recursive(int num)
+{
+    if (num <= 0)
+        return;
+
+    printf("recursive call! %d\n", num);
+    recursive(num-1);
+}
+
+int factorial(int num)
+{
+    if (num == 0)
+        return 1;
+    else
+        return factorial(num-1) * num;
+}
+
+
+// 연습문제 1. 2의 거듭제곱 구하기 2^0 ~ 2^9 (재귀함수를 이용해서)
+int power(int);
+
+int f10(void)
+{
+    int num, result;
+
+    for (num = 0; num <= 9; num++)
+    {
+        result = power(num);
+        printf("2의 %d 제곱: %d\n", num, result);
+    }
+}
+
+int power(int num)
+{
+    if (num == 0)
+        return 1;
+    else
+        return power(num-1) * 2;
+}
+
+
+
 // main 함수는 최종적으로 이 코드 파일을 실행했을 때 작동하는 함수
 // 다른 함수의 경우는 선언해도 작동하지 않지만, main 함수는 코드 실행 시에 작동 (약간 __init__ 이랑 비슷한 느낌?)
 int main(void)
@@ -239,5 +364,10 @@ int main(void)
     // f2();
     // f3();
     // f4();
-    f5();
+    // f5();
+    // f6();
+    // f7();
+    // f8();
+    // f9();
+    f10();
 }
