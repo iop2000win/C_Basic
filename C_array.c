@@ -113,6 +113,34 @@ int f3(void)
 // }
 
 
+int f4(void)
+{
+	int arr[5] = {};
+
+	printf("정수 5개 입력: \n");
+
+	int i, sum, max, min;
+	for (i = 0, sum = 0; i < 5; i++)
+	{
+		sum += arr[i];
+
+		if (i == 0)
+		{
+			max = arr[i];
+			min = arr[i];
+		}
+		else
+		{
+			if (max < arr[i])
+				max = arr[i];
+
+			if (min > arr[i])
+				min = arr[i];
+		}
+	}
+}
+
+
 int main(void)
 {
 	// f1();
