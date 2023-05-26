@@ -102,22 +102,92 @@ int f3(void)
 }
 
 
-// int main(void)
-// {
-// 	char nu = '\0'; // 널 문자의 존재 여부는 문자열의 판단 여부가 됨! 매우 중요! 
-// 	char sp = ' ';
+int null_check(void)
+{
+	char nu = '\0';
+	char space = ' ';
 	
-// 	printf("%d %d \n", nu, sp);
-	
-// 	return 0;
-// }
+	printf("%d %d \n", nu, space);
+
+	return 0;
+}
 
 
 int f4(void)
 {
-	int arr[5] = {};
+	char str[50];
+	int idx = 0;
 
-	printf("정수 5개 입력: \n");
+	printf("문자열 입력: ");
+	scanf("%s", str); // space를 입력 받지 못한다.
+	printf("입력 받은 문자열: %s\n", str);
+
+	printf("문자 단위 출력: ");
+
+	while (str[idx] != '\0')
+	{
+		printf("%c", str[idx]);
+		idx++;
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+int f5(void)
+{
+	char str[50] = "I like C language";
+	printf("string: %s\n", str);
+
+	str[8] = '\0';
+	printf("string: %s\n", str);
+
+	str[6] = '\0';
+	printf("string: %s\n", str);
+
+	str[1] = '\0';
+	printf("string: %s\n", str);
+
+	return 0;
+}
+
+
+int f6(void)
+{
+	char str[50];
+	int idx = 0;
+
+	printf("문자열 입력: ");
+	scanf("%s", str);
+	printf("입력 받은 문자열: %s\n", str);
+
+	printf("문자 단위 출력: ");
+
+	while (str[idx] != '\0')
+	{
+		printf("%c", str[idx]);
+		idx++;
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+/*
+3. 연습문제
+*/
+int f7(void)
+{
+	int arr[5] = {};
+	int j;
+
+	printf("정수 5개 입력: ");
+	for (j == 1; j < 5; j++)
+	{
+		scanf("%d", &arr[j]);
+	}
 
 	int i, sum, max, min;
 	for (i = 0, sum = 0; i < 5; i++)
@@ -138,6 +208,10 @@ int f4(void)
 				min = arr[i];
 		}
 	}
+
+	printf("총 합: %d\n", sum);
+	printf("최대값: %d\n", max);
+	printf("최소값: %d\n", min);
 }
 
 
@@ -145,5 +219,10 @@ int main(void)
 {
 	// f1();
 	// f2();
-	f3();
+	// f3();
+	// null_check();
+	// f4();
+	// f5();
+	// f6();
+	f7();
 }
