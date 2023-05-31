@@ -180,16 +180,16 @@ int f6(void)
 */
 int f7(void)
 {
-	int arr[5] = {};
-	int j;
+	int arr[5];
+	int i, sum, max, min;
 
 	printf("정수 5개 입력: ");
-	for (j == 1; j < 5; j++)
+	
+	for (i = 0; i < 5; i++)
 	{
-		scanf("%d", &arr[j]);
+		scanf("%d", &arr[i]);
 	}
 
-	int i, sum, max, min;
 	for (i = 0, sum = 0; i < 5; i++)
 	{
 		sum += arr[i];
@@ -215,6 +215,46 @@ int f7(void)
 }
 
 
+int f8(void)
+{
+	char str[50];
+	int l;
+
+	printf("영어 단어 입력: ");
+	scanf("%s", &str);
+
+	for (l = 1; str[l] != '\0'; l++)
+	{
+		continue;
+	}
+
+	printf("입력된 영어 단어의 길이: %d\n", l);
+}
+
+
+int f9(void)
+{
+	char str[50];
+	int l;
+
+	printf("영어 단어 입력: ");
+	scanf("%s", &str);
+
+	for (l = 1; str[l] != '\0'; l++)
+	{
+		continue;
+	}
+
+	for (l; l > 0; l--)
+	{
+		// printf("%d", l-1);
+		printf("%c", str[l-1]);
+	}
+	printf("\n");
+}
+
+
+
 int main(void)
 {
 	// f1();
@@ -224,5 +264,7 @@ int main(void)
 	// f4();
 	// f5();
 	// f6();
-	f7();
+	// f7();
+	// f8();
+	f9();
 }
