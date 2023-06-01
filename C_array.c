@@ -238,7 +238,7 @@ int f9(void)
 	int l;
 
 	printf("영어 단어 입력: ");
-	scanf("%s", &str);
+	scanf("%s", str); // 배열의 경우 &기호를 통해 주소값으로 입력해주지 않아도 된다.
 
 	for (l = 1; str[l] != '\0'; l++)
 	{
@@ -254,6 +254,192 @@ int f9(void)
 }
 
 
+/*
+4. 다차원 배열
+*/
+void f10(void)
+{
+	int arr1[3][4];
+	int arr2[7][9];
+
+	printf("세로 3, 가로 4: %d\n", sizeof(arr1));
+	printf("세로 7, 가로 9: %d\n", sizeof(arr2));
+
+	return;
+}
+
+
+void f11(void)
+{
+	int villa[3][2], popu, i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++)
+		{
+			printf("%d층 %d호 인구수: ", i+1, j+1);
+			scanf("%d", &villa[i][j]);
+		}
+	}
+	printf("-------------------------\n");
+
+	for (i = 0; i < 3; i++)
+	{
+		popu = 0;
+		popu += villa[i][0];
+		popu += villa[i][1];
+
+		printf("%d층 인구수: %d\n", i+1, popu);
+	}
+
+	return;
+}
+
+
+void f12(void) // 2차원 배열의 메모리 할당 형태를 확인
+{
+	int arr[3][2];
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 2; j++)
+			printf("%p\n", &arr[i][j]); // %p: 주소 값을 처리하는 서식 문자
+
+	return;
+}
+
+
+void f13(void)
+{
+	int i, j;
+	int arr1[3][3] = {
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9}
+	};
+
+	int arr2[3][3] = {
+		{1}, // 채우지 않은 빈 공간은 0으로 채워짐
+		{4, 5},
+		{7, 8, 9}
+	};
+
+	int arr3[3][3] = {1, 2, 3, 4, 5, 6, 7};
+	// 다차원 배열로 표현하지 않았을 경우에는 순서대로 채워짐
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printf("%d ", arr1[i][j]);
+		printf("\n");
+	}
+	printf("------\n");
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printf("%d ", arr2[i][j]);
+		printf("\n");
+	}
+	printf("------\n");
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+			printf("%d ", arr3[i][j]);
+		printf("\n");
+	}
+	printf("------\n");
+}
+
+
+void f14(void)
+{
+	int arr1[2][3][5]; // int - 4byte
+	double arr2[4][5][6]; // double - 8byte
+
+	printf("높이 2, 세로 3, 가로 5 int 형 배열: %d\n", sizeof(arr1));
+	printf("높이 4, 세로 5, 가로 6 double 형 배열: %d\n", sizeof(arr2));
+}
+
+
+void f15(void)
+{
+	int mean = 0, i, j;
+	int record[3][3][2] = {
+		{
+			{50, 80},
+			{90, 70},
+			{40, 60}
+		},
+		{
+			{90, 80},
+			{90, 100},
+			{80, 80}
+		},
+		{
+			{60, 90},
+			{70, 70},
+			{80, 70}
+		}
+	};
+
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 2; j++)
+			mean += record[0][i][j];
+	printf("1 학급 전체 평균: %g\n", (double) mean/6);
+
+	mean = 0;
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 2; j++)
+			mean += record[1][i][j];
+	printf("2 학급 전체 평균: %g\n", (double) mean/6);
+
+	mean = 0;
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 2; j++)
+			mean += record[2][i][j];
+	printf("3 학급 전체 평균: %g\n", (double) mean/6);
+}
+
+
+/*
+5. 실습
+*/
+void ex1(void)
+{
+	int arr1[3][9];
+	int i, j, val;
+
+	for (i = 0; i < 3; i++)
+		for (j = 0; j < 9; j++)
+		{
+			val = (i+2) * (j+1);
+			arr1[i][j] = val;
+		}
+
+	for (i = 0; i < 3; i++)
+		{
+			for (j = 0; j < 9; j++)
+				printf("%2d ", arr1[i][j]);
+
+		printf("\n");
+		}
+}
+
+
+void ex2(void)
+{
+	int arr_A[2][3] = {
+		{1, 2, 3},
+		{4, 5, 6}
+	};
+	int arr_B[3][2];
+
+	for (i = 0)
+}
+
+
 
 int main(void)
 {
@@ -266,5 +452,13 @@ int main(void)
 	// f6();
 	// f7();
 	// f8();
-	f9();
+	// f9();
+	// f10();
+	// f11();
+	// f12();
+	// f13();
+	// f14();
+	// f15();
+	// ex1();
+	ex2();
 }
