@@ -435,11 +435,254 @@ void ex2(void)
 		{4, 5, 6}
 	};
 	int arr_B[3][2];
+	int i, j;
 
-	for (i = 0)
+	for (i = 0; i < 2; i++)
+	{
+		for (j = 0; j < 3; j++)
+			arr_B[j][i] = arr_A[i][j];
+	}
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 2; j++)
+			printf("%d ", arr_B[i][j]);
+
+		printf("\n");
+	}
+		
 }
 
 
+void ex3(void)
+{
+	int arr[10], arr_odd[10], arr_even[10];
+	int i, odd_len = 0, even_len = 0;
+
+	printf("열 개의 자연수 입력: ");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 != 0)
+		{
+			arr_odd[odd_len] = arr[i];
+			odd_len += 1;
+		}
+		else
+		{
+			arr_even[even_len] = arr[i];
+			even_len += 1;
+		}
+	}
+
+	printf("짝수: ");
+	for (i = 0; i < even_len; i++)
+		printf("%2d ", arr_even[i]);
+	
+	printf("\n홀수: ");
+	for (i = 0; i < odd_len; i++)
+		printf("%2d ", arr_odd[i]);
+
+	printf("\n");
+}
+
+
+void ex4(void)
+{
+	int arr[10], arr_multi_2[10], arr_multi_5[10];
+	int i, multi_2_len = 0, multi_5_len = 0;
+
+	printf("열 개의 자연수 입력: ");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			arr_multi_2[multi_2_len] = arr[i];
+			multi_2_len += 1;
+		}
+
+		if (arr[i] % 5 == 0)
+		{
+			arr_multi_5[multi_5_len] = arr[i];
+			multi_5_len += 1;
+		}
+	}
+
+	printf("2의 배수: ");
+	for (i = 0; i < multi_2_len; i++)
+		printf("%2d ", arr_multi_2[i]);
+	
+	printf("\n5의 배수: ");
+	for (i = 0; i < multi_5_len; i++)
+		printf("%2d ", arr_multi_5[i]);
+
+	printf("\n");
+}
+
+
+void ex5(void)
+{
+	int arr[10];
+	int i, odd_cnt = 0, even_cnt = 0, odd_sum = 0, even_sum = 0;
+
+	printf("열 개의 자연수 입력: ");
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+
+	// 짝수 출력
+	printf("짝수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			printf("%d ", arr[i]);
+			even_cnt += 1;
+			even_sum += arr[i];
+		}
+	}
+	// 홀수 출력
+	printf("\n홀수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 1)
+		{
+			printf("%d ", arr[i]);
+			odd_cnt += 1;
+			odd_sum += arr[i];
+		}
+	}
+	// 짝수의 개수 & 홀수의 개수 / 짝수의 합 & 홀수의 합 출력
+	printf("\n짝수의 개수: %d", even_cnt);
+	printf("\n홀수의 개수: %d", odd_cnt);
+	printf("\n짝수의 합: %d", even_sum);
+	printf("\n홀수의 합: %d", odd_sum);
+
+	// 2의 배수 출력
+	printf("\n2의 배수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	// 5의 배수 출력
+	printf("\n5의 배수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 5 == 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	// 2와 5의 공배수 출력
+	printf("\n2와 5의 공배수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 0 & arr[i] % 5 == 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	// 2의 배수이거나 5의 배수인 수 출력
+	printf("\n2 or 5의 배수 출력: ");
+	for (i = 0; i < 10; i++)
+	{
+		if (arr[i] % 2 == 0 | arr[i] % 5 == 0)
+		{
+			printf("%d ", arr[i]);
+		}
+	}
+	printf("\n");
+}
+
+
+void ex6(void)
+{
+	int i, num, binary_array[8] = {};
+
+	printf("자연수 입력: ");
+	scanf("%d", &num);
+
+	for (i = 7; num >= 1; i--)
+	{
+		if (num % 2 == 0)
+			binary_array[i] = 0;
+		else
+			binary_array[i] = num % 4;
+
+		num /= 2;
+	}
+
+	for (i = 0; i < 8; i++)
+	{
+		printf("%d ", binary_array[i]);
+	}
+}
+
+
+void ex7(void)
+{
+	int i, num, binary_array[8] = {};
+
+	printf("자연수 입력: ");
+	scanf("%d", &num);
+
+	for (i = 7; num >= 1; i--)
+	{
+		if (num % 4 == 0)
+			binary_array[i] = 0;
+		else
+			binary_array[i] = num % 4;
+
+		num /= 4;
+	}
+
+	for (i = 0; i < 8; i++)
+	{
+		printf("%d ", binary_array[i]);
+	}
+}
+
+
+void ex8(void)
+{
+	int i, num, arr[10];
+
+	printf("열 개의 자연수 입력: ");
+	int f_idx = 0, b_idx = 9;
+	for (i = 0; i < 10; i++)
+	{
+		scanf("%d", &num);
+
+		if (num % 2 == 1)
+		{
+			arr[f_idx] = num;
+			f_idx += 1;
+		}
+		else
+		{
+			arr[b_idx] = num;
+			b_idx -= 1;
+		}
+	}
+
+	for (i = 0; i < 10; i++)
+		printf("%d ", arr[i]);
+	
+	printf("\n");
+}
 
 int main(void)
 {
@@ -460,5 +703,11 @@ int main(void)
 	// f14();
 	// f15();
 	// ex1();
-	ex2();
+	// ex2();
+	// ex3();
+	// ex4();
+	// ex5();
+	// ex6();
+	// ex7();
+	ex8();
 }
